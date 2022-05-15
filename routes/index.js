@@ -5,21 +5,21 @@ const router = express.Router();
 
 // import middleware
 const { uploadAnImage } = require("../middlewares/upload-image");
-const countryMiddleware = require("../middlewares/country");
+const storyMiddleware = require("../middlewares/story");
 
 // Route menambahkan data pada endndpoint /
-router.post("/", uploadAnImage, countryMiddleware.add);
+router.post("/", uploadAnImage, storyMiddleware.add);
 
 // Route menampilkan semua data pada endndpoint /
-router.get("/", countryMiddleware.getAll);
+router.get("/", storyMiddleware.getAll);
 
 // Route menampilkan data berdasarkan id pada endndpoint /:id
-router.get("/:id", countryMiddleware.getById);
+router.get("/:id", storyMiddleware.getById);
 
 // Route untuk mengubah data pada endndpoint /:id
-router.post("/:id", uploadAnImage, countryMiddleware.update);
+router.post("/:id", uploadAnImage, storyMiddleware.update);
 
 // Route menghapus data berdasarkan id pada endndpoint /:id
-router.delete("/:id", countryMiddleware.deleteById);
+router.delete("/:id", storyMiddleware.deleteById);
 
 module.exports = router;
